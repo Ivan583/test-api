@@ -3,9 +3,7 @@ var router = express.Router();
 const users = require("../mockData/users");
 /* GET users listing. */
 router.get("/:id", function (req, res, next) {
-  console.log(req.params);
   const result = users.find((u) => u.id === parseInt(req.params.id));
-  console.log(result);
   if (result) return res.json(result);
   return res.status(404).send({ message: "Нет пользователя с данным ID" });
 });
